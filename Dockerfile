@@ -58,3 +58,6 @@ WORKDIR /git/python-frog
 RUN git clone https://github.com/proycon/python-frog.git . && git fetch origin a3ee0b9bafcf1ddd457e30b3fdf73141d8a6dd88 && git reset --hard FETCH_HEAD
 RUN python3 setup.py install
 
+WORKDIR /
+RUN rm -rf /git
+
