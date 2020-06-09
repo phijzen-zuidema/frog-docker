@@ -1,5 +1,9 @@
 FROM ubuntu:16.04
 
+LABEL maintainer="pepijn.hijzen@zuidema.nl"
+LABEL version="1.2"
+LABEL description="A python environment with frog (frognlp) installed."
+
 # Third party UBUNTU PACKAGES:
 RUN apt-get update -y && apt-get upgrade -y
 # C++ compiler (e.g. GCC or Clang), autotools, autoconf-archive, libtool, pkg-config
@@ -61,3 +65,7 @@ RUN python3 setup.py install
 WORKDIR /
 RUN rm -rf /git
 
+# Install PIP so that users can install any dependencies they may need.
+RUN apt install -y python3-pip
+
+CMD tail -f /dev/null
